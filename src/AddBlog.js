@@ -1,6 +1,7 @@
 import { MDBValidation, MDBInput, mdbOn, MDBBtn } from 'mdb-react-ui-kit'
 import React, { useState } from 'react'
-import { Toast, toast } from "react-toastify"
+// import { Toast, toast } from "react-toastify"
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,6 +16,18 @@ const innitialstate = {
 
 }
 
+let tostSuccess=()=>toast.success('🦄 Wow so easy!', {
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+
+  });
+
 const option = ["Travel", "Fashion", "Sports", "Fitness", "Food", "Tech"]
 
 //i8thgtdk
@@ -22,24 +35,63 @@ const option = ["Travel", "Fashion", "Sports", "Fitness", "Food", "Tech"]
 function AddBlog() {
 
   const [formValue, setFormValue] = useState(innitialstate)
-  const [descErrMsg, setDesErrMsg] = useState(null)
+  const [catErrMsg, setCatErrMsg] = useState(null)
   const { title, description, category, imgUrl } = formValue
 
-  const handleSubmit = () => {
+
+
+  let getDate=()=>{
+      let today = new Date()
+      let dd = String(today.getDate()).padStart(2,"0")
+      let month = String(today.getMonth()+1).padStart(2,"0")
+      let yyyy=today.getFullYear();
+
+  }
+
+  let navig=useNavigate()
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault()
+    if (!category) {
+      setCatErrMsg("Please Select Category !!")
+    }
+    if(title && description && imgUrl && category){
+      const currentDate=getDate()
+      const updatedBlogDate = {
+        ...formValue ,date:currentDate
+      }
+      const response = axios.post("http://localhost:5000/blog",updatedBlogDate)
+      if(response){
+          alert("blog created successfully")
+      }
+      else{
+        alert("fails")
+      }
+      setFormValue({
+        title: "",
+        description: "",
+        category: "",
+        imgUrl: ""
+      })
+      navig('/')
+    }
 
   }
 
   const onInputChange = (e) => {
 
     setFormValue({
-      ...formValue,[e.target.name]:e.target.value
+      ...formValue, [e.target.name]: e.target.value
     })
 
   }
 
   const onCategoryChange = (e) => {
+
+    setCatErrMsg(null)
     setFormValue({
-      ...formValue , category:e.target.value
+      ...formValue, category: e.target.value
     })
 
   }
@@ -54,13 +106,18 @@ function AddBlog() {
     axios.post('http://api.cloudinary.com/v1_1/do4lomwfi/image/upload', formData)
       .then((res) => {
         // console.log(res)
-        toast.info('upload image succesfully')
+        // tostSuccess()
+        alert("File Upload succesfully")
+
         setFormValue({
-          ...formValue , imgUrl:res.data.url
+          ...formValue, imgUrl: res.data.url
         })
+
+     
+
       }).catch((error) => {
         // console.log(error)
-        toast.info("Something went wrong")
+        // toast.info("Something went wrong")
       })
   }
 
@@ -86,7 +143,6 @@ function AddBlog() {
           required
           validation='please provoide title'
           invalid
-
         />
 
         <MDBInput
@@ -104,18 +160,27 @@ function AddBlog() {
         />
 
         <MDBInput
-          name='category'
           onChange={(e) => onUploadImage(e.target.files[0])}
-          label='Category'
+          label=''
           id='controlledValue'
           type='file'
           required
           validation='please upload img'
           invalid
         />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+/>
         <br />
-
-
         <br />
 
         <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
@@ -126,8 +191,17 @@ function AddBlog() {
                 {option}
               </option>
             ))
+
           }
+
         </select>
+        {
+          setCatErrMsg && (
+            <div className='setCatErrMsg'>{catErrMsg}</div>
+          )
+        }
+
+
         <br />
         <br />
 

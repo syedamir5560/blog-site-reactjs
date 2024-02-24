@@ -74,5 +74,13 @@ h1:after {
   height: 35px;
   border-color:#83ccc5 ;
   border-radius: 4px;
-  
+
+}
+
+.setCatErrMsg{
+    color: red;
+    font-size: 20px;
+    text-align: left;
+    font-size: 14px ;
+    /* background-color: #83ccc5; */
 }
