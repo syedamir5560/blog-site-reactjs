@@ -1,5 +1,6 @@
 {
   "name": "blog-site-reactjs",
+  "home-page":"http://syedamir5560.github.io/blog-site-reactjs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
