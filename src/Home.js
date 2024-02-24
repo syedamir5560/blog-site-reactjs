@@ -1,40 +1,82 @@
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol } from 'mdb-react-ui-kit'
-import React from 'react'
+import axios from 'axios'
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow, MDBTypography } from 'mdb-react-ui-kit'
+import React, { useEffect, useState } from 'react'
+import Blogs from './Blogs'
 
 import { Link } from 'react-router-dom'
+import Blog from './Blog'
 
-function Home({ title, category, imgUrl, excerpt, id, description, handleDelete }) {
+function Home() {
+
+  let [data, setData] = useState([])
+  useEffect(() => {
+    loadBlogsData()
+  }, [])
+
+  const excerpt = (str) => {
+    if (str.length > 50) {
+      str = str.substring(0, 50) + " ... ";
+    }
+    return str
+  }
+
+  let handleDelete =async (id) => {
+
+    if(window.confirm("Are You Sure ?")){
+
+      let response = await axios.delete(`http://localhost:5000/blog/${id}`)
+      if (response) {
+          // console.log("blog deleted")
+          loadBlogsData()
+          
+  
+      }
+      else {
+        console.log("not")
+      }
+
+    }
+
+
+
+  }
+
+
+  const loadBlogsData = async () => {
+    let response = await axios.get('http://localhost:5000/blog')
+    if (response) {
+      setData(response.data)
+
+    }
+    else {
+      alert("not sent data")
+    }
+  };
+
+  console.log("data", data)
   return (
     <div>
-      <MDBCol size='4' >
-        <MDBCard className='h-100 mt-2' style={{ maxWidth: "22rem" }}>
-          <MDBCardImage
-            src={imgUrl}
-            alt={title}
-            position='top'
-            style={{ maxWidth: '100%', height: "180px" }}
+      <MDBRow>
+        {!data.length && (
+          <MDBTypography className="text-center mb-0" tag="h2" style={{marginTop:"5vw" , color:"red"}}>No Blog Found</MDBTypography>
+        )}
+        <MDBCol>
+          <MDBContainer>
 
-
-          />
-        
-
-          <MDBCardBody>
-            <MDBCardTitle>{title}</MDBCardTitle>
-            <MDBCardText>
-              {excerpt(description)}
-              <link to={`/blog/${id}`}  >Read More...</link>
-            </MDBCardText>
-            <p>{category}</p>
-            <span>
-              <MDBBtn className='mt-1' tag="a" color='none' onClick={() => handleDelete(id)}></MDBBtn>
-            </span>
-          </MDBCardBody>
-
-
-        </MDBCard>
-
-
-      </MDBCol>
+            <MDBRow>
+              {
+                data && data.map((item, index) => (
+                  <Blogs
+                    key={index}
+                    {...item}
+                    excerpt={excerpt}
+                    handleDelete={handleDelete} />
+                ))
+              }
+            </MDBRow>
+          </MDBContainer>
+        </MDBCol>
+      </MDBRow>
     </div>
   )
 }

@@ -209,7 +209,7 @@ function AddBlog() {
 
         <br />
 
-        <MDBBtn color='danger' style={{ margin: 'auto', width: "40%", marginTop: '20px' }} >Go Back  </MDBBtn>
+        <MDBBtn color='danger' style={{ margin: 'auto', width: "40%", marginTop: '20px' }} href='/'>Go Back  </MDBBtn>
 
       </MDBValidation>
 
