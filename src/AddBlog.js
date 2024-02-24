@@ -1,4 +1,4 @@
-import { MDBValidation, MDBInput, mdbOn, MDBBtn, MDBDropdownMenu, MDBDropdownItem, MDBDropdownToggle, MDBDropdown } from 'mdb-react-ui-kit'
+import { MDBValidation, MDBInput, mdbOn, MDBBtn, MDBDropdownMenu, MDBDropdownItem, MDBDropdownItems, MDBDropdownToggle, MDBDropdown } from 'mdb-react-ui-kit'
 import React, { useState } from 'react'
 // import { Toast, toast } from "react-toastify"
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,17 +19,7 @@ const innitialstate = {
 
 }
 
-let tostSuccess = () => toast.success('🦄 Wow so easy!', {
-  position: "top-right",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "colored",
 
-});
 
 const option = ["Travel", "Fashion", "Sports", "Fitness", "Food", "Tech"]
 
@@ -176,8 +166,7 @@ function AddBlog() {
 
         <br />
         <br />
-
-        {/* <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
+        <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
           <option>Select Category</option>
           {
             option.map((option, index) => (
@@ -185,24 +174,10 @@ function AddBlog() {
                 {option}
               </option>
             ))
-
           }
+        </select> 
 
-        </select> */}
-
-        <MDBDropdown>
-          <MDBDropdownToggle tag='a' className='btn btn-primary' onChange={onCategoryChange} value={category}>
-            Select
-          </MDBDropdownToggle>
-          <MDBDropdownMenu>
-            {/* Use map to render each dropdown item */}
-            {option.map((option, index) => (
-              <MDBDropdownItem key={index} link value={option || ""}>
-                {option}
-              </MDBDropdownItem>
-            ))}
-          </MDBDropdownMenu>
-        </MDBDropdown>
+       
         {
           setCatErrMsg && (
             <div className='setCatErrMsg'>{catErrMsg}</div>
