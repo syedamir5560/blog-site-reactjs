@@ -47,13 +47,13 @@ function AddBlog() {
         ...formValue, date: currentDate
       }
       const response = axios.post("http://localhost:5000/blog", updatedBlogDate)
-      // if (response) {
-      //   // alert("blog created successfully")
+      if (response) {
+        // alert("blog created successfully")
      
-      // }
-      // else {
-      //   alert("fails")
-      // }
+      }
+      else {
+        alert("fails")
+      }
       setFormValue({
         title: "",
         description: "",
