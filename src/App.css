@@ -84,3 +84,33 @@ h1:after {
     font-size: 14px ;
     /* background-color: #83ccc5; */
 }
+
+.mdcol {
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:576px) {
+
+  .mdcol{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
+  
+}
+
+
+.mdcol {
+  flex-basis: content;
+  flex-shrink: initial;
+  min-width: 300px;
+  flex-grow: initial;
+
+}
+
+
+.flex-container {
+  justify-content: center;
+  align-items: center;
+}

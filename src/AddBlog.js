@@ -1,9 +1,12 @@
-import { MDBValidation, MDBInput, mdbOn, MDBBtn } from 'mdb-react-ui-kit'
+import { MDBValidation, MDBInput, mdbOn, MDBBtn, MDBDropdownMenu, MDBDropdownItem, MDBDropdownToggle, MDBDropdown } from 'mdb-react-ui-kit'
 import React, { useState } from 'react'
 // import { Toast, toast } from "react-toastify"
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+
+
+
 
 
 
@@ -16,7 +19,7 @@ const innitialstate = {
 
 }
 
-let tostSuccess=()=>toast.success('🦄 Wow so easy!', {
+let tostSuccess = () => toast.success('🦄 Wow so easy!', {
   position: "top-right",
   autoClose: 5000,
   hideProgressBar: false,
@@ -26,7 +29,7 @@ let tostSuccess=()=>toast.success('🦄 Wow so easy!', {
   progress: undefined,
   theme: "colored",
 
-  });
+});
 
 const option = ["Travel", "Fashion", "Sports", "Fitness", "Food", "Tech"]
 
@@ -40,15 +43,15 @@ function AddBlog() {
 
 
 
-  let getDate=()=>{
-      let today = new Date()
-      let dd = String(today.getDate()).padStart(2,"0")
-      let month = String(today.getMonth()+1).padStart(2,"0")
-      let yyyy=today.getFullYear();
+  let getDate = () => {
+    let today = new Date()
+    let dd = String(today.getDate()).padStart(2, "0")
+    let month = String(today.getMonth() + 1).padStart(2, "0")
+    let yyyy = today.getFullYear();
 
   }
 
-  let navig=useNavigate()
+  let navig = useNavigate()
 
   const handleSubmit = (e) => {
 
@@ -56,16 +59,16 @@ function AddBlog() {
     if (!category) {
       setCatErrMsg("Please Select Category !!")
     }
-    if(title && description && imgUrl && category){
-      const currentDate=getDate()
+    if (title && description && imgUrl && category) {
+      const currentDate = getDate()
       const updatedBlogDate = {
-        ...formValue ,date:currentDate
+        ...formValue, date: currentDate
       }
-      const response = axios.post("http://localhost:5000/blog",updatedBlogDate)
-      if(response){
-          alert("blog created successfully")
+      const response = axios.post("http://localhost:5000/blog", updatedBlogDate)
+      if (response) {
+        alert("blog created successfully")
       }
-      else{
+      else {
         alert("fails")
       }
       setFormValue({
@@ -74,7 +77,7 @@ function AddBlog() {
         category: "",
         imgUrl: ""
       })
-      navig('/') 
+      navig('/')
     }
 
   }
@@ -113,7 +116,7 @@ function AddBlog() {
           ...formValue, imgUrl: res.data.url
         })
 
-     
+
 
       }).catch((error) => {
         // console.log(error)
@@ -126,7 +129,7 @@ function AddBlog() {
       <MDBValidation
         onSubmit={handleSubmit}
         className='row g-2'
-        style={{ marginTop: "100px", padding: '100px' }}
+        style={{ marginTop: "100px", padding: '25px', }}
         noValidate
 
       >
@@ -143,6 +146,7 @@ function AddBlog() {
           required
           validation='please provoide title'
           invalid
+
         />
 
         <MDBInput
@@ -168,22 +172,12 @@ function AddBlog() {
           validation='please upload img'
           invalid
         />
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-/>
+
+
         <br />
         <br />
 
-        <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
+        {/* <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
           <option>Select Category</option>
           {
             option.map((option, index) => (
@@ -194,7 +188,21 @@ function AddBlog() {
 
           }
 
-        </select>
+        </select> */}
+
+        <MDBDropdown>
+          <MDBDropdownToggle tag='a' className='btn btn-primary' onChange={onCategoryChange} value={category}>
+            Select
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            {/* Use map to render each dropdown item */}
+            {option.map((option, index) => (
+              <MDBDropdownItem key={index} link value={option || ""}>
+                {option}
+              </MDBDropdownItem>
+            ))}
+          </MDBDropdownMenu>
+        </MDBDropdown>
         {
           setCatErrMsg && (
             <div className='setCatErrMsg'>{catErrMsg}</div>
@@ -205,11 +213,11 @@ function AddBlog() {
         <br />
         <br />
 
-        <MDBBtn type='submit' style={{ margin: 'auto', width: "40%", marginTop: '20px' }}>Add</MDBBtn>
+        <MDBBtn type='submit' style={{ margin: 'auto', width: "30%", marginTop: '10px' }}>Add</MDBBtn>
 
         <br />
 
-        <MDBBtn color='danger' style={{ margin: 'auto', width: "40%", marginTop: '20px' }} href='/'>Go Back  </MDBBtn>
+        <MDBBtn color='danger' style={{ margin: 'auto', width: "30%", marginTop: '10px' }} href='/'>Go Back  </MDBBtn>
 
       </MDBValidation>
 

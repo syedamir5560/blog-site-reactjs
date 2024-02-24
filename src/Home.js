@@ -63,7 +63,7 @@ function Home() {
         <MDBCol>
           <MDBContainer>
 
-            <MDBRow>
+            <MDBRow className='flex-container'>
               {
                 data && data.map((item, index) => (
                   <Blogs

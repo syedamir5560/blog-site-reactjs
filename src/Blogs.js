@@ -1,4 +1,4 @@
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBIcon } from 'mdb-react-ui-kit'
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBIcon, MDBRow } from 'mdb-react-ui-kit'
 import React from 'react'
 
 import { Link } from 'react-router-dom'
@@ -7,9 +7,10 @@ import Badge from './Badge'
 function Blogs({ title, category, imgUrl, excerpt, id, description, handleDelete }) {
     console.log(title, category, imgUrl, excerpt, id, description)
     return (
-        <div>
-            <MDBCol size='4' >
-                <MDBCard className='h-100 mt-2' style={{ maxWidth: "22rem" }}>
+     
+            <MDBCol  size='4'  style={{ padding:'1rem'}} className='mdcol'>
+                
+                <MDBCard className='no-shrink' style={{ maxWidth: "22rem", }}>
                     <MDBCardImage
                         src={imgUrl}
                         alt={title}
@@ -44,7 +45,7 @@ function Blogs({ title, category, imgUrl, excerpt, id, description, handleDelete
                     </MDBCardBody>
                 </MDBCard>
             </MDBCol>
-        </div>
+    
     )
 }
 

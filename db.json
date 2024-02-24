@@ -1,11 +1,32 @@
 {
   "blog": [
     {
-      "id": "fa88",
-      "title": "ali",
-      "description": "asjasj",
+      "id": "36bf",
+      "title": "Portugess Advanture",
+      "description": "Dear All Yay! Greetings from Portugal, country number 93! I arrived here at the beginning of our February half-term for a six-day trip from Porto to Lisbon. Although I count it as a new country now, I actually first set foot in it, quite literally, around 20 years ago. I was visiting a friend in Salamanca in Spain over Christmas, and one day we drove over the border around 75 miles to the west into Portugal for a quick Portuguese coffee. I noticed at the time the dramatic change from cold and dry to mild and humid. And now that I'm again here in the Portuguese winter, the climate feels similar - relatively mild and humid. I didn't count that visit as a proper visit to Portugal though, and thus it still",
       "category": "Travel",
-      "imgUrl": "http://res.cloudinary.com/do4lomwfi/image/upload/v1708782443/r7l2qnmx9xznyoihwk4g.png"
+      "imgUrl": "http://res.cloudinary.com/do4lomwfi/image/upload/v1708785106/ydcb6cgn2dnunqmzhugj.webp"
+    },
+    {
+      "id": "9cf2",
+      "title": "Influncer",
+      "description": "When it comes to fashion, visuals are key. It’s no wonder, then, that many lovers of style turn to Instagram and fashion blogs to get their fill of all things fashion.   Instagram is great when it comes to OOTDs—outfit of the day—and quick style inspirations, but blogs are where the serious fashionistas go to write about trends, advice, and the latest fashion innovations. Not feeling particularly stylish today? Fashion blogs can give you inspiration for dressing well even on those lazy mornings. Got your eye on this season’s hottest trends? These blogs are great for helping you figure out which clothing pieces and colors suit your frame. They can also provide you with ideas about mixing and matching pieces to create a dozen perfect looks without breaking the bank.",
+      "category": "Fashion",
+      "imgUrl": "http://res.cloudinary.com/do4lomwfi/image/upload/v1708785220/wbf6xyh6kweld7hsqgtb.webp"
+    },
+    {
+      "id": "bd24",
+      "title": "Robotics ",
+      "description": "The first presentation I attended at CES this year was from Nvidia. It set the tone with Nvidia ACE and a host of technologies that are creating a robotic future that is rapidly becoming our present.  Robotic fast-food restaurants are beginning to pop up already, and at CES this year, folks were showcasing and talking about the first big wave of robots coming from a variety of vendors, one of which is designed to compete with the coming Tesla robot.  What I continue to find fascinating is that this robotic wave was first presented at Dell Tech World. Since then, Dell has had one big robotic project, Concept Luna, that was incredibly compelling but has yet to make it out of the concept stage.  Let’s talk robots this week. Then, we’ll close with my Product of the Week, the new well-priced graphics card from Nvidia, the RTX 4070 Super.",
+      "category": "Tech",
+      "imgUrl": "http://res.cloudinary.com/do4lomwfi/image/upload/v1708787548/asswtcdctvjvlzrza8jj.jpg"
+    },
+    {
+      "id": "56ae",
+      "title": "Winter Grain Bowl with Balsamic Dressing",
+      "description": "What’s colorful and nutritious and playful and makes your tastebuds feel very alive? This bowl.  Roasted root vegetables, earthy grains, and dried fruit. Dark leafy greens, buttery goat cheese, and lusciously creamy balsamic dressing.  A) Yes, it’s a slice of healthy eating heaven, and B) this is the salad / bowl situation you want gracing the shelves of your fridge this winter.  Like, for days. Because you can meal-prep it! THANK YOU GRAIN BOWLS for knowing what we need.",
+      "category": "Food",
+      "imgUrl": "http://res.cloudinary.com/do4lomwfi/image/upload/v1708787670/pcq1p9h7wsqp295hp1et.jpg"
     }
   ]
 }
