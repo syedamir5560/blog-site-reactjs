@@ -46,10 +46,18 @@ h1:after {
 }
 
 .categoryDropdown {
-  width: 100%;
+  width: 50%;
   border-radius: 4px;
   height: 35px;
   border-color: #83ccc5;
+  display: inline-block;
+  
+}
+
+.adbcont{
+  width: 100%;
+background-color: rgb(173, 225, 225);
+  
 }
 
 .categoryErrorMsg {
@@ -96,6 +104,22 @@ h1:after {
     flex-direction: column;
     flex-wrap: wrap;
 
+  }
+
+  /* #navbarColor02 a{
+    text-align: center;
+ 
+  } */
+  
+}
+
+
+@media screen and (max-width:1000px) {
+
+
+  #navbarColor02 a{
+    text-align: center;
+ 
   }
   
 }

@@ -19,7 +19,7 @@ function Header() {
     const [show, setShow] = useState(false);
 
     return (
-        <MDBNavbar expand='lg' bgColor='light'>
+        <MDBNavbar expand='lg' bgColor='light' className='nav'>
             <MDBContainer fluid>
                 <MDBNavbarBrand href='#'>
                     <img src="https://cdn.logojoy.com/wp-content/uploads/2018/05/30164225/572.png" style={{ height: "50px", width: "100px" }} />
@@ -29,6 +29,7 @@ function Header() {
                     data-target='#navbarColor02'
                     aria-controls='navbarColor02'
                     aria-expanded='false'
+                 
                     aria-label='Toggle navigation'
                     onClick={() => setShow(!show)}
                 >

@@ -5,12 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-
-
-
-
-
-
 const innitialstate = {
   title: "",
   description: "",
@@ -18,8 +12,6 @@ const innitialstate = {
   imgUrl: "",
 
 }
-
-
 
 const option = ["Travel", "Fashion", "Sports", "Fitness", "Food", "Tech"]
 
@@ -115,7 +107,7 @@ function AddBlog() {
   }
 
   return (
-    <div style={{ border: '2px solid brown' }}>
+    <div style={{ border: '2px solid brown' }} className='adbcont'>
       <MDBValidation
         onSubmit={handleSubmit}
         className='row g-2'
@@ -136,7 +128,6 @@ function AddBlog() {
           required
           validation='please provoide title'
           invalid
-
         />
 
         <MDBInput
@@ -162,10 +153,7 @@ function AddBlog() {
           validation='please upload img'
           invalid
         />
-
-
-        <br />
-        <br />
+     
         <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
           <option>Select Category</option>
           {
