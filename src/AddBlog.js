@@ -48,7 +48,7 @@ function AddBlog() {
       }
       const response = axios.post("http://localhost:5000/blog", updatedBlogDate)
       if (response) {
-        alert("blog created successfully")
+        // alert("blog created successfully")
       }
       else {
         alert("fails")
@@ -92,7 +92,7 @@ function AddBlog() {
       .then((res) => {
         // console.log(res)
         // tostSuccess()
-        alert("File Upload succesfully")
+        // alert("File Upload succesfully")
 
         setFormValue({
           ...formValue, imgUrl: res.data.url
