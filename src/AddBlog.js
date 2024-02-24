@@ -74,7 +74,7 @@ function AddBlog() {
         category: "",
         imgUrl: ""
       })
-      navig('/')
+      navig('/') 
     }
 
   }
