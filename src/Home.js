@@ -24,12 +24,10 @@ function Home() {
 
     if(window.confirm("Are You Sure ?")){
 
-      let response = await axios.delete(`http://localhost:5000/blog/${id}`)
+      let response = await axios.delete(`https://65db12483ea883a152911707.mockapi.io/blog/${id}`)
       if (response) {
           // console.log("blog deleted")
           loadBlogsData()
-          
-  
       }
       else {
         console.log("not")
@@ -41,12 +39,11 @@ function Home() {
 
   }
 
-
   const loadBlogsData = async () => {
-    let response = await axios.get('http://localhost:5000/blog')
+    let response = await axios.get('https://65db12483ea883a152911707.mockapi.io/blog')
     if (response) {
       setData(response.data)
-
+      
     }
     else {
       alert("not sent data")

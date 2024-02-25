@@ -18,8 +18,9 @@ function Blog() {
 
   }, [id])
 
+
   const singleBlogData = async () => {
-    let response = await axios.get(`http://localhost:5000/blog/${id}`)
+    let response = await axios.get(`https://65db12483ea883a152911707.mockapi.io/blog/${id}`)
     setData(response.data)
     if (response) {
       console.log(response.data)
@@ -37,11 +38,10 @@ function Blog() {
   }
 
   return (
-    <MDBContainer style={{ border: "2px solid #d1ebe", padding:'30px' }}>
+    <MDBContainer style={{ border: "2px solid #d1ebe", padding: '30px' }}>
       {/* <link to="/" /> */}
 
-        <MDBBtn style={{ float: 'left', color: "black", marginTop:'10px'}} href='/'>Go Back</MDBBtn>
-   
+      <MDBBtn style={{ float: 'left', color: "black", marginTop: '10px' }} href='/'>Go Back</MDBBtn>
 
       <MDBTypography tag="h2" className='text-muted mt-2 mx-5' style={{ display: 'inline-block' }}>
         {data && data.title}
@@ -66,12 +66,8 @@ function Blog() {
         <MDBTypography className='lead md-0'>
           {data && data.description}
         </MDBTypography>
-
       </div>
     </MDBContainer>
-
-
-
   )
 }
 

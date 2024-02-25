@@ -46,10 +46,9 @@ function AddBlog() {
       const updatedBlogDate = {
         ...formValue, date: currentDate
       }
-      const response = axios.post("http://localhost:5000/blog", updatedBlogDate)
+      const response = axios.post("https://65db12483ea883a152911707.mockapi.io/blog", updatedBlogDate)
       if (response) {
-        // alert("blog created successfully")
-     
+        alert("blog created successfully")
       }
       else {
         alert("fails")
@@ -87,22 +86,21 @@ function AddBlog() {
 
     const formData = new FormData()
     formData.append("file", file)
+    console.log(formData)
     // formData.append('Clo')
     formData.append('upload_preset', 'i8thgtdk')
     axios.post('http://api.cloudinary.com/v1_1/do4lomwfi/image/upload', formData)
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         // tostSuccess()
         // alert("File Upload succesfully")
-
         setFormValue({
           ...formValue, imgUrl: res.data.url
         })
-
-
+        console.log(res.data)
 
       }).catch((error) => {
-        // console.log(error)
+        console.log(error)
         // toast.info("Something went wrong")
       })
   }
@@ -150,11 +148,9 @@ function AddBlog() {
           label=''
           id='controlledValue'
           type='file'
-          required
           validation='please upload img'
           invalid
         />
-     
         <select className='categoryDropdown' onChange={onCategoryChange} value={category}>
           <option>Select Category</option>
           {
