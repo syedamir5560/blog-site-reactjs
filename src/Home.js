@@ -22,17 +22,26 @@ function Home() {
 
   let handleDelete =async (id) => {
 
+    let  p ="Nadiya@123"
+
     if(window.confirm("Are You Sure ?")){
+      if(prompt("Enter Security Key") == p){
 
-      let response = await axios.delete(`https://65db12483ea883a152911707.mockapi.io/blog/${id}`)
-      if (response) {
-          // console.log("blog deleted")
-          loadBlogsData()
+        let response = await axios.delete(`https://65db12483ea883a152911707.mockapi.io/blog/${id}`)
+        if (response) {
+            // console.log("blog deleted")
+            loadBlogsData()
+        }
+        else {
+          console.log("not")
+        }
+  
       }
-      else {
-        console.log("not")
+      else{
+        alert("you enter wrong key")
       }
 
+     
     }
 
 
